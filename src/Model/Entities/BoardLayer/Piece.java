@@ -2,8 +2,9 @@ package Model.Entities.BoardLayer;
 
 public class Piece {
     protected Position position;
-    public Piece(Position position){
-        this.position = position;
+    private Board board;
+    public Piece(Board board) {
+        this.board = board;
     }
 
     public Position getPosition() {
@@ -12,4 +13,7 @@ public class Piece {
     public void setPosition(Position position) {
         this.position = position;
     }
+    protected Board getBoard() {
+        return board;
+    }  
 }

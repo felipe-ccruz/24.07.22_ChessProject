@@ -9,7 +9,14 @@ public class Position {
     }
     
     
-    
+    @Override
+    public String toString() {
+        return "\nPosition\n[Rows: " + rows + " | Columns: " + columns + "]\n";
+    }
+
+
+
+
     public int getRows() {
         return rows;
     }

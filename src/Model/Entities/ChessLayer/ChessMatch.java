@@ -1,11 +1,15 @@
 package Model.Entities.ChessLayer;
 
 import Model.Entities.BoardLayer.Board;
+import Model.Entities.BoardLayer.Position;
+import Model.Entities.ChessLayer.Pieces.King;
+import Model.Entities.ChessLayer.Pieces.Rook;
 
 public class ChessMatch {
     private Board board;
     public ChessMatch() {
         board = new Board(8, 8);
+        initialSetup();
     }
 
     public ChessPiece[][] getPieces() {
@@ -16,5 +20,11 @@ public class ChessMatch {
             }
         }
         return mat;
+    }
+
+    private void initialSetup() {
+        board.placePiece(new Rook(board, Color.WHITE), new Position(2, 1));
+        board.placePiece(new King(board, Color.WHITE), new Position(0, 0));
+        board.placePiece(new King(board, Color.BLACK), new Position(7, 7));
     }
 }

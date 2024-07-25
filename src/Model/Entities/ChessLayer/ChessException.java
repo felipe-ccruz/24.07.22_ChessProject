@@ -1,6 +1,8 @@
 package Model.Entities.ChessLayer;
 
-public class ChessException extends RuntimeException{
+import Model.Entities.BoardLayer.BoardExceptions;
+
+public class ChessException extends BoardExceptions{
     public ChessException(String message){
         super(message);
     }

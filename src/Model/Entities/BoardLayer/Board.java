@@ -3,21 +3,21 @@ package Model.Entities.BoardLayer;
 public class Board{
     private int rows;
     private int columns;
-    private Piece[][] pieces;
+    private Piece[][] squares;
     public Board(int rows, int columns){
         if (rows < 1 || columns < 1){
             throw new BoardExceptions("Erro creating board: there must be at least 1 row and 1 column");
         } 
         this.rows = rows;
         this.columns = columns;
-        pieces = new Piece[rows][columns];
+        squares = new Piece[rows][columns];
     }
 
     public Piece piece(int row, int column){
         if (!positionExists(row, column)) {
             throw new BoardExceptions("Position does not exist");
         }
-        return pieces[row][column];
+        return squares[row][column];
     }
 
     public Piece piece(Position position){
@@ -26,11 +26,12 @@ public class Board{
         }
         return piece(position.getRows(), position.getColumns());
     }
+    
     public void placePiece(Piece piece, Position position){
         if(thereIsAPiece(position)){
             throw new BoardExceptions("There is already a piece at position " + position);
         }
-        pieces[position.getRows()][position.getColumns()] = piece;
+        squares[position.getRows()][position.getColumns()] = piece;
         piece.position = position;
     }  
 
@@ -43,7 +44,7 @@ public class Board{
         }
         Piece aux = piece(position);
         aux.position = null;
-        pieces[position.getRows()][position.getColumns()] = null;
+        squares[position.getRows()][position.getColumns()] = null;
         return aux;
     }
     

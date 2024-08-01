@@ -42,14 +42,15 @@ public class UI {
     }
 
     public static void printBoard(ChessPiece[][] pieces){
+        System.out.println();
         for (int i = 0; i < pieces.length; i++) {
-            System.out.print(8 - i + " ");
+            System.out.print(ANSI_CYAN + (8 - i) + " " + ANSI_RESET);
             for (int j = 0; j < pieces[i].length; j++) {
                 printPiece(pieces[i][j]);
             }
             System.out.println();
         }
-        System.out.println("  a b c d e f g h");
+        System.out.println("  " + ANSI_CYAN + "a b c d e f g h" + ANSI_RESET);
     }
 
     private static void printPiece(ChessPiece piece) {
